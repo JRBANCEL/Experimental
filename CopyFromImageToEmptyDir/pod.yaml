@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  initContainers:
+  - command:
+    - sh
+    - -c
+    - 'cp -r /var/log/* /var-log'
+    image: gcr.io/bancel-knative-dev/copy-from-image-to-empty-dir
+    imagePullPolicy: Always
+    name: init-container
+    volumeMounts:
+    - mountPath: /var-log
+      name: var-log
+  containers:
+  - image: gcr.io/bancel-knative-dev/copy-from-image-to-empty-dir
+    imagePullPolicy: Always
+    name: queue-proxy
+    volumeMounts:
+    - mountPath: /var/log
+      name: var-log
+  volumes:
+  - emptyDir: {}
+    name: var-log
