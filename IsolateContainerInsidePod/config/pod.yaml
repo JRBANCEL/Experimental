@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-0
+  namespace: default
+spec:
+  containers:
+  - image: github.com/JRBANCEL/Experimental/IsolateContainerInsidePod/cmd/server
+    name: server
+  - image: github.com/JRBANCEL/Experimental/IsolateContainerInsidePod/cmd/proxy
+    name: proxy
+    ports:
+    - containerPort: 9090
+      name: proxy
+      protocol: TCP
