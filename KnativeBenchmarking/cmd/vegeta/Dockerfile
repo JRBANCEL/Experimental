@@ -1,4 +1,3 @@
-# Build
 FROM golang:1.13-buster as build
 
 WORKDIR /go/src/app
@@ -8,7 +7,6 @@ RUN go get -d -v ./...
 
 RUN go build -o /go/bin/app
 
-# Package
-FROM alpine:3.7
+FROM gcr.io/distroless/base-debian10
 COPY --from=build /go/bin/app /
 CMD ["/app"]
