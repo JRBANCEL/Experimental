@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: vegeta
-        image: gcr.io/bct-prod-igm-loadtest/vegeta
+        image: github.com/JRBANCEL/Experimental/KnativeBenchmarking/vegeta
