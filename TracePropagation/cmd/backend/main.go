@@ -8,8 +8,8 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	log.Printf("Request from %s", r.RemoteAddr)
-	fmt.Fprintf(w, "From Backend with love.")
+	log.Printf("Headers: %#v", r.Header)
+	fmt.Fprintf(w, "From Backend with love.\n")
 }
 
 func main() {
