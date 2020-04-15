@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: varlogwriter
+spec:
+  selector:
+    matchLabels:
+      run: varlogwriter
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: varlogwriter
+    spec:
+      containers:
+      - name: varlogwriter
+        image: busybox:latest
+        command: ["/bin/sh"]
+        args: ["-c", "mkdir -p /var/log; while true; do echo \"$(date) Hello!\" >> /var/log/test.log; sleep 5;done"]
