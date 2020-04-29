@@ -1,0 +1,8 @@
+▶ go test -bench . -benchtime 40s -benchmem                                                                                          
+goos: linux                                                                                                                          
+goarch: amd64                                                                                                                        
+pkg: github.com/JRBANCEL/Experimental/FmtBenchmark                                                                                   
+BenchmarkSprint-4       209581644              283 ns/op              80 B/op          1 allocs/op                                   
+BenchmarkSprintf-4      170051884              301 ns/op              80 B/op          1 allocs/op                                   
+PASS                                                                                                                                 
+ok      github.com/JRBANCEL/Experimental/FmtBenchmark   162.037s
