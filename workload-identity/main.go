@@ -12,9 +12,6 @@ func main() {
 	fmt.Println("Starting...")
 	ctx := context.Background()
 
-	for {
-
-	}
 	cred, err := azidentity.NewWorkloadIdentityCredential(nil)
 	if err != nil {
 		panic(err)
